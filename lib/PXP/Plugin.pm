@@ -4,13 +4,14 @@ package PXP::Plugin;
 
 =head1 NAME
 
-  PXP::Plugin - Plugin class definition
+  PXP::Plugin - Plugin class definition (used only in the
+  internal registry)
 
 =head1 SYNOPSIS
 
 <?xml version="1.0"?>
 
-<plugin 
+<plugin
   id="IMC::WebApp::TestPlugin"
   name="Test plugin"
   version="0.1"
@@ -21,15 +22,20 @@ package PXP::Plugin;
 
 =head1 DESCRIPTION
 
-A plugin is a component that extends or modifies the IMC platform. Plugins group together a set of C<Extension>s, C<ExtensionPoint>s and C<Resources>.
+A plugin groups together a set of extensions and/or
+extension-points.
 
-The plugin class defines a common interface for accessing plugin descriptors and implementation.
+A C<PXP::Plugin> represents such a container as it is read and its
+content loaded into the system. A common interface is provided to
+access the configuration descriptors and the actual implementation
+that has been loaded into the system.
 
-A plugin object is B<NOT> a plugin. A plugin object is only an accessor for plugin properties and functions.
+B<NOTE>: a C<PXP::Plugin> object is B<NOT> a plugin.
 
-A I<real> plugin, is just a set of Perl modules loaded according to the 'plugin.xml' descriptor file.
+A I<real> plugin, is just a set of Perl modules loaded according to
+the 'plugin.xml' descriptor file.
 
-Plugin dependencies is supported with the <require> tag.
+Plugin dependencies are supported with the <require> tag.
 
 =head2 Limitations
 
@@ -469,7 +475,7 @@ sub loadLocalizedResource {
 
 =head1 SEE ALSO
 
-C<PXP::PluginRegistry>, <PXP::ExtensionPoint>, C<PXP::Extension>
+C<PXP::PluginRegistry>, C<PXP::ExtensionPoint>, C<PXP::Extension>
 
 See the article on eclipse.org describing the plugin architecture : 
 http://www.eclipse.org/articles/Article-Plug-in-architecture/plugin_architecture.html

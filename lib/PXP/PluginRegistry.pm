@@ -34,11 +34,16 @@ our $plugins;
 
 =head1 ABSTRACT
 
-The PluginRegistry manages plugins, extension points and extensions.
+The PluginRegistry groups together a set of plugins, extension points
+and extensions for the running system.
 
 =head1 DESCRIPTION
 
 The PluginRegistry manages plugins, extension points and extensions.
+
+The PluginRegistry takes care of loading the plugins from file,
+loading classes and Perl modules and, optionnaly, running 'startup'
+sub-routines as each plugin is loaded in the system.
 
 =over 4
 
@@ -100,7 +105,9 @@ sub getPlugin {
 
 Load all plugins present in the directory.
 
-This is usually called once by by PXP::init. Plugin developpers can call this function to load plugins installed outside of the system default directory ('plugins' at the root of the IMC home directory).
+This is usually called once by by PXP::init. Plugin developpers can
+call this function to load plugins installed outside of the system
+default directory ('plugins' at the root of the PXP home directory).
 
 See below for details about the loading process.
 
@@ -468,10 +475,10 @@ sub _getRegisteredPlugin {
 
 First, the PluginRegistry calls loadPluginFromDirectory to load all
 the plugins installed in the system directory (usually called
-'plugins' inside the IMC hierarchy). The loader calculate the
+'plugins' inside the PXP hierarchy). The loader calculates the
 dependencies so that plugin can resolve symbols.
 
-For each plugin, its extension points are instantiated and registered
+For each plugin, extension points are instantiated and registered
 into the global registry.
 
 Then, extension _definitions_ are handed to the extension points to be
@@ -490,15 +497,6 @@ have already been loaded.
 
 See C<PXP::ExtensionPoint>, C<PXP::Extension> for details about the
 concepts
-
-=head1 COPYRIGHT AND LICENSE
-
-Copyright 2003-2004 by IDEALX
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
 
 
 1;

@@ -2,6 +2,19 @@
 # arch-tag: automatic-ChangeLog--dbarth@idealx.com--2005/pxp--dev--0.1
 #
 
+2005-03-24 12:26:57 GMT	David Barth <dbarth@idealx.com>	patch-2
+
+    Summary:
+      better documentation: see introduction in lib/PXP.pm
+    Revision:
+      pxp--dev--0.1--patch-2
+
+
+    modified files:
+     Changes MANIFEST lib/PXP.pm lib/PXP/Plugin.pm
+     lib/PXP/PluginRegistry.pm
+
+
 2005-03-16 14:21:53 GMT	David Barth <dbarth@idealx.com>	patch-1
 
     Summary:
